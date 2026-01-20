@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog - Cakeistry</title>
+    <link rel="stylesheet" href="assets/app.css">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+
+<body class="font-sans antialiased bg-brand-dark text-white">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav x-data="{ open: false }" class="glass border-b border-brand-surface sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="shrink-0 flex items-center">
+                            <a href="index.html"
+                                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                Cakeistry
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <a href="index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Home</a>
+                            <a href="shop.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Shop</a>
+                            <a href="articles.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main class="py-12 bg-brand-dark min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl font-bold text-white mb-4">Latest News & Articles</h1>
+                    <div class="w-24 h-1 bg-brand-primary mx-auto rounded-full"></div>
+                    <p class="mt-4 text-gray-400">Stay updated with the sweetest trends and news.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Article 1 -->
+                    <div
+                        class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300 flex flex-col h-full">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-800 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/white?text=Sweet+Trends" alt="Sweet Trends"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex-1">
+                                <p class="text-sm text-brand-secondary mb-2">Jan 20, 2026</p>
+                                <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition mb-3">
+                                    <a href="article-detail.html">The Future of Cake in a Can</a>
+                                </h3>
+                                <p class="text-gray-400 line-clamp-3">Discover why portable desserts are taking the
+                                    world by storm and how Cakeistry is leading the way.</p>
+                            </div>
+                            <div class="mt-6 flex items-center">
+                                <span class="text-sm font-medium text-white">By Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-brand-surface py-8 mt-12 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+                <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/app.js"></script>
+</body>
+
+</html>

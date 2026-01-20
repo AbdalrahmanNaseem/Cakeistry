@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Red Velvet Can - Cakeistry</title>
+    <link rel="stylesheet" href="assets/app.css">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+
+<body class="font-sans antialiased bg-brand-dark text-white">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav x-data="{ open: false }" class="glass border-b border-brand-surface sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="shrink-0 flex items-center">
+                            <a href="index.html"
+                                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                Cakeistry
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <a href="index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Home</a>
+                            <a href="shop.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Shop</a>
+                            <a href="articles.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Blog</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="cart.html" class="relative text-gray-300 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main class="py-12 bg-brand-dark min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <!-- Product Images -->
+                    <div class="glass rounded-2xl overflow-hidden shadow-2xl border border-white/5">
+                        <img src="https://placehold.co/600x600/1e293b/white?text=Red+Velvet" alt="Red Velvet"
+                            class="w-full h-full object-cover shadow-inner">
+                    </div>
+
+                    <!-- Product Details -->
+                    <div class="space-y-6">
+                        <div>
+                            <span
+                                class="text-brand-primary text-sm font-semibold tracking-wide uppercase">Classic</span>
+                            <h1 class="mt-2 text-4xl font-extrabold text-white tracking-tight">Red Velvet Can</h1>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <p class="text-3xl font-bold text-white">$5.99</p>
+                            <span
+                                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-brand-secondary/20 text-brand-secondary">
+                                In Stock
+                            </span>
+                        </div>
+
+                        <div class="prose prose-invert max-w-none text-gray-300">
+                            <p>Our signature Red Velvet cake, layered with silky cream cheese frosting, all neatly
+                                packed in a convenient can. Perfect for gifts or personal indulgence.</p>
+                        </div>
+
+                        <div class="borer-t border-gray-700 pt-6">
+                            <div class="flex items-center space-x-4">
+                                <button
+                                    class="flex-1 bg-brand-primary hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-pink-500/30 transition transform hover:-translate-y-1">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Section -->
+                <div class="mt-12 bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+                    <h2 class="text-2xl font-bold text-white mb-6">Customer Reviews</h2>
+                    <div class="space-y-6">
+                        <div class="border-b border-gray-700 pb-6 last:border-0 last:pb-0">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center">
+                                    <div class="text-brand-accent flex mr-2">
+                                        <!-- 5 Stars Mockup -->
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-white font-bold">Ahmad</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">2 days ago</span>
+                            </div>
+                            <p class="text-gray-300">Absolutely delicious! The packaging is so unique and keeps it
+                                fresh.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-brand-surface py-8 mt-12 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+                <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/app.js"></script>
+</body>
+
+</html>

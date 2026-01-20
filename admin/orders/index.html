@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Orders - Cakeistry</title>
+    <link rel="stylesheet" href="../../assets/app.css">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+
+<body class="font-sans antialiased bg-brand-dark text-white" x-data="{ showEditModal: false }">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav x-data="{ open: false }" class="glass border-b border-brand-surface sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="shrink-0 flex items-center">
+                            <a href="../../index.html"
+                                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                Cakeistry Admin
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <a href="../dashboard.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Dashboard</a>
+                            <a href="../products/index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Products</a>
+                            <a href="index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Orders</a>
+                            <a href="../articles/index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Articles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-12 bg-brand-dark min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold text-white mb-8">Manage Orders</h1>
+
+                <div class="mb-4">
+                    <div class="flex space-x-4">
+                        <button class="px-4 py-2 rounded-full bg-brand-primary text-white">All</button>
+                        <button
+                            class="px-4 py-2 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700">Pending</button>
+                        <button
+                            class="px-4 py-2 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700">Preparing</button>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto glass rounded-2xl border border-white/5">
+                    <table class="w-full text-left text-gray-400">
+                        <thead class="bg-gray-800 text-gray-200 uppercase text-xs">
+                            <tr>
+                                <th class="px-6 py-3">Order ID</th>
+                                <th class="px-6 py-3">Customer</th>
+                                <th class="px-6 py-3">Total</th>
+                                <th class="px-6 py-3">Status</th>
+                                <th class="px-6 py-3">Date</th>
+                                <th class="px-6 py-3">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <!-- Order 1 -->
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="px-6 py-4 font-medium text-white">ORD-2026-001</td>
+                                <td class="px-6 py-4">Ahmad User</td>
+                                <td class="px-6 py-4">$10.99</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-primary/20 text-brand-primary">Pending</span>
+                                </td>
+                                <td class="px-6 py-4">Jan 20, 2026</td>
+                                <td class="px-6 py-4 flex gap-3 text-sm">
+                                    <a href="show.html" class="text-brand-primary hover:text-white transition">View</a>
+                                    <button @click="showEditModal = true"
+                                        class="text-blue-400 hover:text-white transition">Edit</button>
+                                </td>
+                            </tr>
+                            <!-- Order 2 -->
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="px-6 py-4 font-medium text-white">ORD-2026-002</td>
+                                <td class="px-6 py-4">Sara Hassan</td>
+                                <td class="px-6 py-4">$15.49</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/20 text-green-500">Delivered</span>
+                                </td>
+                                <td class="px-6 py-4">Jan 19, 2026</td>
+                                <td class="px-6 py-4 flex gap-3 text-sm">
+                                    <a href="show.html" class="text-brand-primary hover:text-white transition">View</a>
+                                    <button @click="showEditModal = true"
+                                        class="text-blue-400 hover:text-white transition">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div x-show="showEditModal" class="fixed inset-0 z-[60] overflow-y-auto" style="display: none;">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div x-show="showEditModal" @click="showEditModal = false"
+                class="fixed inset-0 transition-opacity bg-brand-dark/90 backdrop-blur-sm"></div>
+            <div
+                class="inline-block overflow-hidden text-left align-bottom transition-all transform glass rounded-2xl shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-white/10">
+                <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-white">Update Order Status</h3>
+                    <button @click="showEditModal = false" class="text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Status</label>
+                        <select
+                            class="w-full bg-gray-800 border-gray-700 rounded-lg text-white focus:ring-brand-primary focus:border-brand-primary">
+                            <option value="pending">Pending</option>
+                            <option value="preparing">Preparing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="px-6 py-4 border-t border-white/5 flex justify-end gap-3">
+                    <button @click="showEditModal = false"
+                        class="px-4 py-2 text-gray-400 hover:text-white font-medium">Cancel</button>
+                    <button @click="showEditModal = false"
+                        class="px-6 py-2 bg-brand-primary hover:bg-pink-600 text-white font-bold rounded-lg transition">Update
+                        Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

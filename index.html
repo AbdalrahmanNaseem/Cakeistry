@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cakeistry - Cake in a Can</title>
+    <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+
+<body class="font-sans antialiased bg-brand-dark text-white">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav x-data="{ open: false }" class="glass border-b border-brand-surface sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="shrink-0 flex items-center">
+                            <a href="index.html"
+                                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                Cakeistry
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <a href="index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Home</a>
+                            <a href="shop.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Shop</a>
+                            <a href="articles.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Blog</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="cart.html" class="relative text-gray-300 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </a>
+                        <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
+                            <a href="admin/dashboard.html"
+                                class="text-sm text-brand-secondary hover:text-white transition">Admin</a>
+                            <a href="login.html" class="text-sm text-gray-300 hover:text-white transition">Log in</a>
+                            <a href="register.html"
+                                class="text-sm bg-brand-primary hover:bg-pink-600 text-white px-4 py-2 rounded-full transition shadow-lg shadow-pink-500/30">Register</a>
+                        </div>
+                        <div class="-me-2 flex items-center sm:hidden">
+                            <button @click="open = ! open"
+                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white transition">
+                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                    <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h16" />
+                                    <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div :class="{'block': open, 'hidden': ! open}"
+                class="hidden sm:hidden bg-brand-surface/90 backdrop-blur-md">
+                <div class="pt-2 pb-3 space-y-1">
+                    <a href="index.html"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-brand-primary text-sm font-medium text-white bg-brand-primary/10 transition">Home</a>
+                    <a href="shop.html"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Shop</a>
+                    <a href="articles.html"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Blog</a>
+                    <a href="login.html"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Log
+                        in</a>
+                    <a href="register.html"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Register</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main>
+            <!-- Hero Section -->
+            <div class="relative bg-brand-dark overflow-hidden">
+                <div class="absolute inset-0">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-transparent z-10">
+                    </div>
+                    <div
+                        class="w-full h-full bg-[url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center opacity-50">
+                    </div>
+                </div>
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 z-20">
+                    <div class="md:w-2/3">
+                        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+                            <span class="block">Love at First Bite,</span>
+                            <span class="block text-brand-primary">Sealed in a Can.</span>
+                        </h1>
+                        <p class="mt-4 text-xl text-gray-300 max-w-lg mb-8">
+                            Experience the future of dessert. Fresh, premium, and portable cakes delivered straight to
+                            your door.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="shop.html"
+                                class="px-8 py-3 bg-brand-primary hover:bg-pink-600 text-white font-bold rounded-full shadow-lg shadow-pink-500/30 transition transform hover:-translate-y-1">
+                                Order Now
+                            </a>
+                            <a href="#featured"
+                                class="px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-full backdrop-blur-sm transition border border-white/20">
+                                View Menu
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products -->
+            <div id="featured" class="py-16 bg-brand-dark">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-white mb-4">Trending Flavors</h2>
+                        <div class="w-24 h-1 bg-brand-primary mx-auto rounded-full"></div>
+                        <p class="mt-4 text-gray-400">Our customer favorites, waiting for you.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Product 1 -->
+                        <div
+                            class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
+                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
+                                <img src="https://placehold.co/600x600/1e293b/white?text=Red+Velvet" alt="Red Velvet"
+                                    class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
+                                <div class="absolute top-4 right-4">
+                                    <button
+                                        class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
+                                    <a href="product-detail.html">Red Velvet Can</a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-xl font-bold text-white">$5.99</span>
+                                    <span
+                                        class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
+                                        Stock</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More products... -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="py-16 bg-brand-surface relative overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 w-64 h-64 bg-brand-primary/10 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center p-6 glass rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-brand-primary/20 text-brand-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H4.5a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Freshly Baked</h3>
+                            <p class="text-gray-400">Baked daily using premium ingredients and sealed instantly for
+                                freshness.</p>
+                        </div>
+                        <div class="text-center p-6 glass rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-brand-secondary/20 text-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Fast Delivery</h3>
+                            <p class="text-gray-400">Track your order in real-time from our kitchen to your doorstep.
+                            </p>
+                        </div>
+                        <div class="text-center p-6 glass rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-brand-accent/20 text-brand-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Made with Love</h3>
+                            <p class="text-gray-400">Every can is crafted with passion and attention to detail.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-brand-surface py-8 mt-12 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+                <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/app.js"></script>
+</body>
+
+</html>

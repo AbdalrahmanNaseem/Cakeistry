@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shop - Cakeistry</title>
+    <link rel="stylesheet" href="assets/app.css">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+
+<body class="font-sans antialiased bg-brand-dark text-white">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav x-data="{ open: false }" class="glass border-b border-brand-surface sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="shrink-0 flex items-center">
+                            <a href="index.html"
+                                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                Cakeistry
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <a href="index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Home</a>
+                            <a href="shop.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Shop</a>
+                            <a href="articles.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Blog</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="cart.html" class="relative text-gray-300 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </a>
+                        <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
+                            <a href="#" class="text-sm text-gray-300 hover:text-white transition">Log in</a>
+                            <a href="#"
+                                class="text-sm bg-brand-primary hover:bg-pink-600 text-white px-4 py-2 rounded-full transition shadow-lg shadow-pink-500/30">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main class="py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold text-white">Shop All Flavors</h2>
+                    <div class="mt-4 md:mt-0">
+                        <select
+                            class="bg-gray-800 text-white border-gray-700 rounded-lg focus:ring-brand-primary focus:border-brand-primary">
+                            <option value="">All Categories</option>
+                            <option value="chocolate">Chocolate</option>
+                            <option value="nuts">Nuts</option>
+                            <option value="fruits">Fruits</option>
+                            <option value="velvet">Velvet</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product 1 -->
+                    <div
+                        class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800 relative">
+                            <img src="https://placehold.co/600x600/1e293b/white?text=Choco+Blast" alt="Choco Blast"
+                                class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
+                            <div class="absolute top-4 right-4">
+                                <button
+                                    class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
+                                <a href="product-detail.html">Choco Blast Can</a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400 capitalize">Chocolate</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-white">$6.99</span>
+                                <span
+                                    class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
+                                    Stock</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div
+                        class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800 relative">
+                            <img src="https://placehold.co/600x600/1e293b/white?text=Berry+Delight" alt="Berry Delight"
+                                class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
+                            <div class="absolute top-4 right-4">
+                                <button
+                                    class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
+                                <a href="product-detail.html">Berry Delight Can</a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400 capitalize">Fruits</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-white">$5.49</span>
+                                <span
+                                    class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
+                                    Stock</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More mocked products... -->
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-brand-surface py-8 mt-12 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+                <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/app.js"></script>
+</body>
+
+</html>

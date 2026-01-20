@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Articles - Cakeistry</title>
+    <link rel="stylesheet" href="../../assets/app.css">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+
+<body class="font-sans antialiased bg-brand-dark text-white" x-data="{ showAddModal: false, showEditModal: false }">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav x-data="{ open: false }" class="glass border-b border-brand-surface sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="shrink-0 flex items-center">
+                            <a href="../../index.html"
+                                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                Cakeistry Admin
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <a href="../dashboard.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Dashboard</a>
+                            <a href="../products/index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Products</a>
+                            <a href="../orders/index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Orders</a>
+                            <a href="index.html"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Articles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-12 bg-brand-dark min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-3xl font-bold text-white">Manage Articles</h1>
+                    <button @click="showAddModal = true"
+                        class="px-4 py-2 bg-brand-primary hover:bg-pink-600 text-white font-bold rounded-lg transition">
+                        + Add Article
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto glass rounded-2xl border border-white/5">
+                    <table class="w-full text-left text-gray-400">
+                        <thead class="bg-gray-800 text-gray-200 uppercase text-xs">
+                            <tr>
+                                <th class="px-6 py-3">Image</th>
+                                <th class="px-6 py-3">Title</th>
+                                <th class="px-6 py-3">Author</th>
+                                <th class="px-6 py-3">Date</th>
+                                <th class="px-6 py-3">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <!-- Article 1 -->
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="px-6 py-4">
+                                    <img src="https://placehold.co/40x40"
+                                        class="h-10 w-10 rounded bg-gray-600 object-cover">
+                                </td>
+                                <td class="px-6 py-4 font-medium text-white">The Future of Cake in a Can</td>
+                                <td class="px-6 py-4">Admin</td>
+                                <td class="px-6 py-4">Jan 20, 2026</td>
+                                <td class="px-6 py-4 flex space-x-2">
+                                    <button @click="showEditModal = true"
+                                        class="text-blue-400 hover:text-white transition">Edit</button>
+                                    <button class="text-red-400 hover:text-red-300 transition">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Add Modal -->
+    <div x-show="showAddModal" class="fixed inset-0 z-[60] overflow-y-auto" style="display: none;">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div x-show="showAddModal" @click="showAddModal = false"
+                class="fixed inset-0 transition-opacity bg-brand-dark/90 backdrop-blur-sm"></div>
+            <div
+                class="inline-block overflow-hidden text-left align-bottom transition-all transform glass rounded-2xl shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-white/10">
+                <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-white">Add New Article</h3>
+                    <button @click="showAddModal = false" class="text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Title</label>
+                        <input type="text"
+                            class="w-full bg-gray-800 border-gray-700 rounded-lg text-white focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Content</label>
+                        <textarea
+                            class="w-full bg-gray-800 border-gray-700 rounded-lg text-white focus:ring-brand-primary focus:border-brand-primary"
+                            rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="px-6 py-4 border-t border-white/5 flex justify-end gap-3">
+                    <button @click="showAddModal = false"
+                        class="px-4 py-2 text-gray-400 hover:text-white font-medium">Cancel</button>
+                    <button @click="showAddModal = false"
+                        class="px-6 py-2 bg-brand-primary hover:bg-pink-600 text-white font-bold rounded-lg transition">Create
+                        Article</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div x-show="showEditModal" class="fixed inset-0 z-[60] overflow-y-auto" style="display: none;">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div x-show="showEditModal" @click="showEditModal = false"
+                class="fixed inset-0 transition-opacity bg-brand-dark/90 backdrop-blur-sm"></div>
+            <div
+                class="inline-block overflow-hidden text-left align-bottom transition-all transform glass rounded-2xl shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-white/10">
+                <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-white">Edit Article</h3>
+                    <button @click="showEditModal = false" class="text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Title</label>
+                        <input type="text" value="The Future of Cake in a Can"
+                            class="w-full bg-gray-800 border-gray-700 rounded-lg text-white focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Content</label>
+                        <textarea
+                            class="w-full bg-gray-800 border-gray-700 rounded-lg text-white focus:ring-brand-primary focus:border-brand-primary"
+                            rows="4">Welcome to the future of desserts...</textarea>
+                    </div>
+                </div>
+                <div class="px-6 py-4 border-t border-white/5 flex justify-end gap-3">
+                    <button @click="showEditModal = false"
+                        class="px-4 py-2 text-gray-400 hover:text-white font-medium">Cancel</button>
+                    <button @click="showEditModal = false"
+                        class="px-6 py-2 bg-brand-primary hover:bg-pink-600 text-white font-bold rounded-lg transition">Save
+                        Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
