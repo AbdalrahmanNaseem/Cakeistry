@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/theme-light.css">
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="assets/theme.js" defer></script>
+    <script src="assets/lang.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -25,19 +26,26 @@
                             </a>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <a href="index.html"
+                            <a href="index.html" data-i18n="nav_home"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Home</a>
-                            <a href="shop.html"
+                            <a href="shop.html" data-i18n="nav_shop"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Shop</a>
-                            <a href="articles.html"
+                            <a href="articles.html" data-i18n="nav_blog"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Blog</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition" title="Toggle Theme">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition"
+                            title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
+                        </button>
+                        <button data-lang-toggle onclick="LangManager.toggle()"
+                            class="relative text-sm font-bold text-gray-300 hover:text-white transition">
+                            العربية
                         </button>
                         <a href="cart.html" class="relative text-gray-300 hover:text-white transition">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -56,36 +64,41 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                     <!-- Product Images -->
-                    <div class="glass rounded-2xl overflow-hidden shadow-2xl border border-white/5">
+                    <div class="glass rounded-2xl overflow-hidden shadow-2xl border border-white/5"
+                        data-aos="fade-right">
                         <img src="https://placehold.co/600x600/1e293b/white?text=Red+Velvet" alt="Red Velvet"
                             class="w-full h-full object-cover shadow-inner">
                     </div>
 
                     <!-- Product Details -->
-                    <div class="space-y-6">
+                    <div class="space-y-6" data-aos="fade-left">
                         <div>
-                            <span
-                                class="text-brand-primary text-sm font-semibold tracking-wide uppercase">Classic</span>
-                            <h1 class="mt-2 text-4xl font-extrabold text-white tracking-tight">Red Velvet Can</h1>
+                            <span class="text-brand-primary text-sm font-semibold tracking-wide uppercase"
+                                data-i18n="product_tag_classic">Classic</span>
+                            <h1 class="mt-2 text-4xl font-extrabold text-white tracking-tight"
+                                data-i18n="product_red_velvet_title">Red Velvet Can</h1>
                         </div>
 
                         <div class="flex items-center space-x-4">
                             <p class="text-3xl font-bold text-white">$5.99</p>
                             <span
-                                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-brand-secondary/20 text-brand-secondary">
+                                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-brand-secondary/20 text-brand-secondary"
+                                data-i18n="product_in_stock">
                                 In Stock
                             </span>
                         </div>
 
                         <div class="prose prose-invert max-w-none text-gray-300">
-                            <p>Our signature Red Velvet cake, layered with silky cream cheese frosting, all neatly
+                            <p data-i18n="product_red_velvet_desc">Our signature Red Velvet cake, layered with silky
+                                cream cheese frosting, all neatly
                                 packed in a convenient can. Perfect for gifts or personal indulgence.</p>
                         </div>
 
                         <div class="borer-t border-gray-700 pt-6">
                             <div class="flex items-center space-x-4">
                                 <button
-                                    class="flex-1 bg-brand-primary hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-pink-500/30 transition transform hover:-translate-y-1">
+                                    class="flex-1 bg-brand-primary hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-pink-500/30 transition transform hover:-translate-y-1"
+                                    data-i18n="product_add_to_cart">
                                     Add to Cart
                                 </button>
                             </div>
@@ -94,8 +107,10 @@
                 </div>
 
                 <!-- Reviews Section -->
-                <div class="mt-12 bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
-                    <h2 class="text-2xl font-bold text-white mb-6">Customer Reviews</h2>
+                <div class="mt-12 bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10"
+                    data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-white mb-6" data-i18n="product_reviews_title">Customer Reviews
+                    </h2>
                     <div class="space-y-6">
                         <div class="border-b border-gray-700 pb-6 last:border-0 last:pb-0">
                             <div class="flex items-center justify-between mb-2">
@@ -137,10 +152,13 @@
 
         <footer class="bg-brand-surface py-8 mt-12 border-t border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-                <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+                <p data-i18n="footer_copyright">&copy; 2026 Cakeistry. All rights reserved.</p>
             </div>
         </footer>
     </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="assets/animations.js"></script>
     <script src="assets/app.js"></script>
 </body>
 

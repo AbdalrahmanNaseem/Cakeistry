@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/theme-light.css">
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="assets/theme.js" defer></script>
+    <script src="assets/lang.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -25,25 +26,37 @@
                             </a>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <a href="index.html"
+                            <a href="index.html" data-i18n="nav_home"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Home</a>
-                            <a href="shop.html"
+                            <a href="shop.html" data-i18n="nav_shop"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Shop</a>
-                            <a href="articles.html"
+                            <a href="articles.html" data-i18n="nav_blog"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Blog</a>
-                            <a href="testimonials.html"
+                            <a href="testimonials.html" data-i18n="nav_reviews"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Reviews</a>
-                            <a href="contact.html"
+                            <a href="contact.html" data-i18n="nav_contact"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Contact</a>
-                            <a href="faq.html"
+                            <a href="faq.html" data-i18n="nav_faq"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">FAQ</a>
+                            <a href="login.html" data-i18n="nav_login"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Log
+                                in</a>
+                            <a href="register.html" data-i18n="nav_register"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Register</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition" title="Toggle Theme">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition"
+                            title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
+                        </button>
+                        <button data-lang-toggle onclick="LangManager.toggle()"
+                            class="relative text-sm font-bold text-gray-300 hover:text-white transition">
+                            العربية
                         </button>
                     </div>
                     <div class="-me-2 flex items-center sm:hidden">
@@ -64,18 +77,23 @@
             <div :class="{'block': open, 'hidden': ! open}"
                 class="hidden sm:hidden bg-brand-surface/90 backdrop-blur-md">
                 <div class="pt-2 pb-3 space-y-1">
-                    <a href="index.html"
+                    <a href="index.html" data-i18n="mobile_nav_home"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Home</a>
-                    <a href="shop.html"
+                    <a href="shop.html" data-i18n="mobile_nav_shop"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Shop</a>
-                    <a href="articles.html"
+                    <a href="articles.html" data-i18n="mobile_nav_blog"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Blog</a>
-                    <a href="testimonials.html"
+                    <a href="testimonials.html" data-i18n="mobile_nav_reviews"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-brand-primary text-sm font-medium text-white bg-brand-primary/10 transition">Reviews</a>
-                    <a href="contact.html"
+                    <a href="contact.html" data-i18n="mobile_nav_contact"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Contact</a>
-                    <a href="faq.html"
+                    <a href="faq.html" data-i18n="mobile_nav_faq"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">FAQ</a>
+                    <a href="login.html" data-i18n="mobile_nav_login"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Log
+                        in</a>
+                    <a href="register.html" data-i18n="mobile_nav_register"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Register</a>
                 </div>
             </div>
         </nav>
@@ -86,173 +104,346 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20"></div>
             </div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Customer Reviews</h1>
-                <p class="text-xl text-gray-300">See what our happy customers have to say about Cakeistry</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight"
+                    data-i18n="reviews_title">Customer Reviews</h1>
+                <p class="text-xl text-gray-300" data-i18n="reviews_desc">See what our happy customers have to say about
+                    Cakeistry</p>
             </div>
         </div>
-        
+
 
         <!-- Reviews Content -->
         <div class="py-16 bg-brand-dark min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                <!-- Stats Section -->
+                <!-- Stats Section -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16" style="margin-bottom:20px ;">
                     <div class="bg-brand-surface rounded-2xl p-8 text-center border border-white/5">
-                        <div class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary mb-2">4.9★</div>
-                        <p class="text-gray-300 mb-1">Average Rating</p>
-                        <p class="text-sm text-gray-500">Based on 500+ reviews</p>
+                        <div
+                            class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary mb-2">
+                            4.9★</div>
+                        <p class="text-gray-300 mb-1" data-i18n="reviews_avg_rating">Average Rating</p>
+                        <p class="text-sm text-gray-500" data-i18n="reviews_based_on">Based on 500+ reviews</p>
                     </div>
                     <div class="bg-brand-surface rounded-2xl p-8 text-center border border-white/5">
                         <div class="text-5xl font-bold text-brand-primary mb-2">98%</div>
-                        <p class="text-gray-300 mb-1">Customer Satisfaction</p>
-                        <p class="text-sm text-gray-500">Customers would recommend us</p>
+                        <p class="text-gray-300 mb-1" data-i18n="reviews_satisfaction">Customer Satisfaction</p>
+                        <p class="text-sm text-gray-500" data-i18n="reviews_recommend">Customers would recommend us</p>
                     </div>
                     <div class="bg-brand-surface rounded-2xl p-8 text-center border border-white/5">
-                        <div class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary mb-2">15K+</div>
-                        <p class="text-gray-300 mb-1">Happy Customers</p>
-                        <p class="text-sm text-gray-500">Worldwide delivery</p>
+                        <div
+                            class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary mb-2">
+                            15K+</div>
+                        <p class="text-gray-300 mb-1" data-i18n="reviews_happy_customers">Happy Customers</p>
+                        <p class="text-sm text-gray-500" data-i18n="reviews_delivery">Worldwide delivery</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Review Card 1 -->
-                    <div class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
+                    <div
+                        class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
                         <div class="aspect-video overflow-hidden bg-brand-dark">
-                            <img src="assets/img/Screenshot 2026-01-20 232453.jpg" alt="Strawberry Bliss Cake" class="w-full h-full object-cover hover:scale-110 transition duration-300">
+                            <img src="assets/img/Screenshot 2026-01-20 232453.jpg" alt="Strawberry Bliss Cake"
+                                class="w-full h-full object-cover hover:scale-110 transition duration-300">
                         </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <h3 class="text-lg font-bold text-white">Sarah Johnson</h3>
+                                <h3 class="text-lg font-bold text-white" data-i18n="review_1_name">Sarah Johnson</h3>
                                 <div class="flex gap-1">
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
                                 </div>
                             </div>
-                            <p class="text-gray-300 leading-relaxed mb-4">This is absolutely the best cake I've ever tasted! The freshness and flavor are unmatched. I've ordered three times already and recommended it to all my friends. Cakeistry truly delivers on their promise of premium quality.</p>
+                            <p class="text-gray-300 leading-relaxed mb-4" data-i18n="review_1_text">This is absolutely
+                                the best cake I've ever
+                                tasted! The freshness and flavor are unmatched. I've ordered three times already and
+                                recommended it to all my friends. Cakeistry truly delivers on their promise of premium
+                                quality.</p>
                             <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full">Strawberry Bliss</span>
-                                <span class="text-xs text-gray-500">Verified Purchase</span>
+                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full"
+                                    data-i18n="review_1_product">Strawberry
+                                    Bliss</span>
+                                <span class="text-xs text-gray-500" data-i18n="reviews_verified">Verified
+                                    Purchase</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review Card 2 -->
-                    <div class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
+                    <div
+                        class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
                         <div class="aspect-video overflow-hidden bg-brand-dark">
-                            <img src="assets/img/Screenshot 2026-01-20 232553.jpg" alt="Chocolate Dream Cake" class="w-full h-full object-cover hover:scale-110 transition duration-300">
+                            <img src="assets/img/Screenshot 2026-01-20 232553.jpg" alt="Chocolate Dream Cake"
+                                class="w-full h-full object-cover hover:scale-110 transition duration-300">
                         </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <h3 class="text-lg font-bold text-white">Michael Chen</h3>
+                                <h3 class="text-lg font-bold text-white" data-i18n="review_2_name">Michael Chen</h3>
                                 <div class="flex gap-1">
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
                                 </div>
                             </div>
-                            <p class="text-gray-300 leading-relaxed mb-4">Amazing packaging and even more amazing taste! The chocolate variety is perfection. My family loves it and we've made it a monthly tradition. Worth every penny and I love supporting a brand that cares about quality.</p>
+                            <p class="text-gray-300 leading-relaxed mb-4" data-i18n="review_2_text">Amazing packaging
+                                and even more amazing taste!
+                                The chocolate variety is perfection. My family loves it and we've made it a monthly
+                                tradition. Worth every penny and I love supporting a brand that cares about quality.</p>
                             <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full">Chocolate Dream</span>
+                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full"
+                                    data-i18n="review_2_product">Chocolate
+                                    Dream</span>
                                 <span class="text-xs text-gray-500">Verified Purchase</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review Card 3 -->
-                    <div class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
+                    <div
+                        class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
                         <div class="aspect-video overflow-hidden bg-brand-dark">
-                            <img src="assets/img/Screenshot 2026-01-20 232623.jpg" alt="Vanilla Classic Cake" class="w-full h-full object-cover hover:scale-110 transition duration-300">
+                            <img src="assets/img/Screenshot 2026-01-20 232623.jpg" alt="Vanilla Classic Cake"
+                                class="w-full h-full object-cover hover:scale-110 transition duration-300">
                         </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <h3 class="text-lg font-bold text-white">Emma Rodriguez</h3>
+                                <h3 class="text-lg font-bold text-white" data-i18n="review_3_name">Emma Rodriguez</h3>
                                 <div class="flex gap-1">
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
                                 </div>
                             </div>
-                            <p class="text-gray-300 leading-relaxed mb-4">Perfect gift idea! I sent this to my mom for her birthday and she couldn't stop raving about it. The vanilla classic is timeless and elegant. Cakeistry has gained a lifetime customer. Highly recommended for anyone looking for premium treats.</p>
+                            <p class="text-gray-300 leading-relaxed mb-4" data-i18n="review_3_text">Perfect gift idea! I
+                                sent this to my mom for
+                                her birthday and she couldn't stop raving about it. The vanilla classic is timeless and
+                                elegant. Cakeistry has gained a lifetime customer. Highly recommended for anyone looking
+                                for premium treats.</p>
                             <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full">Vanilla Classic</span>
+                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full"
+                                    data-i18n="product_classic">Vanilla
+                                    Classic</span>
                                 <span class="text-xs text-gray-500">Verified Purchase</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review Card 4 -->
-                    <div class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
+                    <div
+                        class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
                         <div class="aspect-video overflow-hidden bg-brand-dark">
-                            <img src="assets/img/Screenshot 2026-01-20 232637.jpg" alt="Passion Fruit Cake" class="w-full h-full object-cover hover:scale-110 transition duration-300">
+                            <img src="assets/img/Screenshot 2026-01-20 232637.jpg" alt="Passion Fruit Cake"
+                                class="w-full h-full object-cover hover:scale-110 transition duration-300">
                         </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <h3 class="text-lg font-bold text-white">James Thompson</h3>
+                                <h3 class="text-lg font-bold text-white" data-i18n="review_4_name">James Thompson</h3>
                                 <div class="flex gap-1">
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
                                 </div>
                             </div>
-                            <p class="text-gray-300 leading-relaxed mb-4">Passion fruit flavor is incredible! The tropical notes are so refreshing and the cake stays fresh for months. I love that it's in a can - perfect for camping trips and travel. Innovation meets tradition perfectly in every bite.</p>
+                            <p class="text-gray-300 leading-relaxed mb-4" data-i18n="review_4_text">Passion fruit flavor
+                                is incredible! The
+                                tropical notes are so refreshing and the cake stays fresh for months. I love that it's
+                                in a can - perfect for camping trips and travel. Innovation meets tradition perfectly in
+                                every bite.</p>
                             <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full">Passion Fruit</span>
+                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full"
+                                    data-i18n="review_4_product">Passion
+                                    Fruit</span>
                                 <span class="text-xs text-gray-500">Verified Purchase</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review Card 5 -->
-                    <div class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
+                    <div
+                        class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
                         <div class="aspect-video overflow-hidden bg-brand-dark">
-                            <img src="assets/img/Screenshot 2026-01-20 232453.jpg" alt="Strawberry Bliss Cake" class="w-full h-full object-cover hover:scale-110 transition duration-300">
+                            <img src="assets/img/Screenshot 2026-01-20 232453.jpg" alt="Strawberry Bliss Cake"
+                                class="w-full h-full object-cover hover:scale-110 transition duration-300">
                         </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <h3 class="text-lg font-bold text-white">Jessica Williams</h3>
+                                <h3 class="text-lg font-bold text-white" data-i18n="review_5_name">Jessica Williams</h3>
                                 <div class="flex gap-1">
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
                                 </div>
                             </div>
-                            <p class="text-gray-300 leading-relaxed mb-4">A game-changer for my dietary needs! The gluten-free option tastes just as good as the regular. Finally a premium cake brand that cares about inclusivity. I'm so grateful to have found Cakeistry and will be a loyal customer forever.</p>
+                            <p class="text-gray-300 leading-relaxed mb-4" data-i18n="review_5_text">A game-changer for
+                                my dietary needs! The
+                                gluten-free option tastes just as good as the regular. Finally a premium cake brand that
+                                cares about inclusivity. I'm so grateful to have found Cakeistry and will be a loyal
+                                customer forever.</p>
                             <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full">Gluten-Free</span>
+                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full"
+                                    data-i18n="review_5_product">Gluten-Free</span>
                                 <span class="text-xs text-gray-500">Verified Purchase</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review Card 6 -->
-                    <div class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
+                    <div
+                        class="bg-brand-surface rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition transform hover:-translate-y-2">
                         <div class="aspect-video overflow-hidden bg-brand-dark">
-                            <img src="assets/img/Screenshot 2026-01-20 232553.jpg" alt="Chocolate Dream Cake" class="w-full h-full object-cover hover:scale-110 transition duration-300">
+                            <img src="assets/img/Screenshot 2026-01-20 232553.jpg" alt="Chocolate Dream Cake"
+                                class="w-full h-full object-cover hover:scale-110 transition duration-300">
                         </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <h3 class="text-lg font-bold text-white">David Martinez</h3>
+                                <h3 class="text-lg font-bold text-white" data-i18n="review_6_name">David Martinez</h3>
                                 <div class="flex gap-1">
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
-                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z">
+                                        </path>
+                                    </svg>
                                 </div>
                             </div>
-                            <p class="text-gray-300 leading-relaxed mb-4">Impressive attention to detail in every aspect! From the quality of ingredients to the sustainable packaging, Cakeistry demonstrates genuine care. The taste is exceptional and the gift packaging is gorgeous. Best premium cake I've ever tried!</p>
+                            <p class="text-gray-300 leading-relaxed mb-4" data-i18n="review_6_text">Impressive attention
+                                to detail in every
+                                aspect! From the quality of ingredients to the sustainable packaging, Cakeistry
+                                demonstrates genuine care. The taste is exceptional and the gift packaging is gorgeous.
+                                Best premium cake I've ever tried!</p>
                             <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full">Chocolate Dream</span>
+                                <span class="text-xs bg-brand-primary/20 text-brand-primary px-3 py-1 rounded-full"
+                                    data-i18n="review_6_product">Chocolate
+                                    Dream</span>
                                 <span class="text-xs text-gray-500">Verified Purchase</span>
                             </div>
                         </div>
@@ -269,41 +460,52 @@
                     <!-- Brand Info -->
                     <div>
                         <h3 class="text-lg font-bold text-white mb-4">Cakeistry</h3>
-                        <p class="text-gray-400 text-sm mb-4">Love at First Bite, Sealed in a Can.</p>
-                        <a href="https://www.instagram.com/cakeistry_jo/" target="_blank" class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                        <p class="text-gray-400 text-sm mb-4" data-i18n="footer_brand_desc">Love at First Bite, Sealed
+                            in a Can.</p>
+                        <a href="https://www.instagram.com/cakeistry_jo/" target="_blank"
+                            class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                                class="w-5 h-5">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
                             </svg>
                         </a>
                     </div>
 
                     <!-- Quick Links -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
                         <ul class="space-y-2">
-                            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                            <li><a href="shop.html" class="text-gray-400 hover:text-white transition">Shop</a></li>
-                            <li><a href="articles.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                            <li><a href="index.html" data-i18n="nav_home"
+                                    class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="shop.html" data-i18n="nav_shop"
+                                    class="text-gray-400 hover:text-white transition">Shop</a></li>
+                            <li><a href="articles.html" data-i18n="nav_blog"
+                                    class="text-gray-400 hover:text-white transition">Blog</a></li>
                         </ul>
                     </div>
 
                     <!-- Support -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Support</h4>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_support">Support</h4>
                         <ul class="space-y-2">
-                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
-                            <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                            <li><a href="contact.html" data-i18n="nav_contact"
+                                    class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                            <li><a href="faq.html" data-i18n="nav_faq"
+                                    class="text-gray-400 hover:text-white transition">FAQ</a></li>
                         </ul>
                     </div>
 
                     <!-- Newsletter -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Newsletter</h4>
-                        <p class="text-gray-400 text-sm mb-3">Get notified when we launch new products</p>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_newsletter">Newsletter</h4>
+                        <p class="text-gray-400 text-sm mb-3" data-i18n="footer_newsletter_desc">Get notified when we
+                            launch new products</p>
                         <form class="flex flex-col gap-2">
                             <input type="email" placeholder="Your email" required
+                                data-i18n-placeholder="footer_placeholder_email"
                                 class="px-3 py-2 bg-brand-dark border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary transition text-sm">
-                            <button type="submit"
+                            <button type="submit" data-i18n="footer_subscribe"
                                 class="px-3 py-2 bg-brand-primary hover:bg-pink-600 text-white font-semibold rounded-lg transition text-sm">
                                 Subscribe
                             </button>
@@ -312,7 +514,7 @@
                 </div>
 
                 <div class="border-t border-white/10 pt-8 text-center text-gray-400">
-                    <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+                    <p data-i18n="footer_copyright">&copy; 2026 Cakeistry. All rights reserved.</p>
                 </div>
             </div>
         </footer>

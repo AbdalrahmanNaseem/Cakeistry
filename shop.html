@@ -7,8 +7,10 @@
     <title>Shop - Cakeistry</title>
     <link rel="stylesheet" href="assets/app.css">
     <link rel="stylesheet" href="assets/theme-light.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="assets/theme.js" defer></script>
+    <script src="assets/lang.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -25,25 +27,32 @@
                             </a>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <a href="index.html"
+                            <a href="index.html" data-i18n="nav_home"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Home</a>
-                            <a href="shop.html"
+                            <a href="shop.html" data-i18n="nav_shop"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Shop</a>
-                            <a href="articles.html"
+                            <a href="articles.html" data-i18n="nav_blog"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Blog</a>
-                            <a href="testimonials.html"
+                            <a href="testimonials.html" data-i18n="nav_reviews"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Reviews</a>
-                            <a href="contact.html"
+                            <a href="contact.html" data-i18n="nav_contact"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Contact</a>
-                            <a href="faq.html"
+                            <a href="faq.html" data-i18n="nav_faq"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">FAQ</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition" title="Toggle Theme">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition"
+                            title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
+                        </button>
+                        <button data-lang-toggle onclick="LangManager.toggle()"
+                            class="relative text-sm font-bold text-gray-300 hover:text-white transition">
+                            العربية
                         </button>
                         <a href="cart.html" class="relative text-gray-300 hover:text-white transition">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -53,9 +62,10 @@
                             </svg>
                         </a>
                         <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
-                           
-                            <a href="login.html" class="text-sm text-gray-300 hover:text-white transition">Log in</a>
-                            <a href="register.html"
+
+                            <a href="login.html" data-i18n="nav_login"
+                                class="text-sm text-gray-300 hover:text-white transition">Log in</a>
+                            <a href="register.html" data-i18n="nav_register"
                                 class="text-sm bg-brand-primary hover:bg-pink-600 text-white px-4 py-2 rounded-full transition shadow-lg shadow-pink-500/30">Register</a>
                         </div>
                         <div class="-me-2 flex items-center sm:hidden">
@@ -77,21 +87,22 @@
             <div :class="{'block': open, 'hidden': ! open}"
                 class="hidden sm:hidden bg-brand-surface/90 backdrop-blur-md">
                 <div class="pt-2 pb-3 space-y-1">
-                    <a href="index.html"
+                    <a href="index.html" data-i18n="mobile_nav_home"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Home</a>
-                    <a href="shop.html"
+                    <a href="shop.html" data-i18n="mobile_nav_shop"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-brand-primary text-sm font-medium text-white bg-brand-primary/10 transition">Shop</a>
-                    <a href="articles.html"
+                    <a href="articles.html" data-i18n="mobile_nav_blog"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Blog</a>
-                    <a href="testimonials.html"
+                    <a href="testimonials.html" data-i18n="mobile_nav_reviews"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Reviews</a>
-                    <a href="contact.html"
+                    <a href="contact.html" data-i18n="mobile_nav_contact"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Contact</a>
-                    <a href="faq.html"
+                    <a href="faq.html" data-i18n="mobile_nav_faq"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">FAQ</a>
-                    <a href="login.html"
-                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Log in</a>
-                    <a href="register.html"
+                    <a href="login.html" data-i18n="mobile_nav_login"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Log
+                        in</a>
+                    <a href="register.html" data-i18n="mobile_nav_register"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Register</a>
                 </div>
             </div>
@@ -100,141 +111,144 @@
         <!-- Page Content -->
         <main class="py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-                    <h2 class="text-3xl font-bold text-white">Shop All Flavors</h2>
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8" data-aos="fade-down">
+                    <h2 class="text-3xl font-bold text-white" data-i18n="shop_title">Shop All Flavors</h2>
                     <div class="mt-4 md:mt-0">
                         <select
                             class="bg-gray-800 text-white border-gray-700 rounded-lg focus:ring-brand-primary focus:border-brand-primary">
-                            <option value="">All Categories</option>
-                            <option value="chocolate">Chocolate</option>
-                            <option value="nuts">Nuts</option>
-                            <option value="fruits">Fruits</option>
-                            <option value="velvet">Velvet</option>
+                            <option value="" data-i18n="shop_filter_all">All Categories</option>
+                            <option value="chocolate" data-i18n="shop_filter_chocolate">Chocolate</option>
+                            <option value="nuts" data-i18n="shop_filter_nuts">Nuts</option>
+                            <option value="fruits" data-i18n="shop_filter_fruits">Fruits</option>
+                            <option value="velvet" data-i18n="shop_filter_velvet">Velvet</option>
                         </select>
                     </div>
                 </div>
 
-               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <!-- Product 1 -->
-                        <div
-                            class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
-                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product 1 -->
+                    <div data-aos="fade-up" data-aos-delay="0"
+                        class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
 
-                                <img src="assets/img/Screenshot 2026-01-20 232453.jpg" alt="Red Velvet"
-                                    class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
-                                <div class="absolute top-4 right-4">
-                                    <button
-                                        class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M12 4.5v15m7.5-7.5h-15" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
-                                    <a href="product-detail.html">Red Velvet Can</a>
-                                </h3>
-                                <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
-                                <div class="mt-4 flex items-center justify-between">
-                                    <span class="text-xl font-bold text-white">$5.99</span>
-                                    <span
-                                        class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
-                                        Stock</span>
-                                </div>
+                            <img src="assets/img/Screenshot 2026-01-20 232453.jpg" alt="Red Velvet"
+                                class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
+                            <div class="absolute top-4 right-4">
+                                <button
+                                    class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <div
-                            class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
-                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
-                                <img src="assets/img/Screenshot 2026-01-20 232553.jpg" alt="Red Velvet"
-                                    class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
-                                <div class="absolute top-4 right-4">
-                                    <button
-                                        class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M12 4.5v15m7.5-7.5h-15" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
-                                    <a href="product-detail.html">Red Velvet Can</a>
-                                </h3>
-                                <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
-                                <div class="mt-4 flex items-center justify-between">
-                                    <span class="text-xl font-bold text-white">$5.99</span>
-                                    <span
-                                        class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
-                                        Stock</span>
-                                </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
+                                <a href="product-detail.html">Red Velvet Can</a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-white">$5.99</span>
+                                <span
+                                    class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded"
+                                    data-i18n="product_in_stock">In
+                                    Stock</span>
                             </div>
                         </div>
-                        <div
-                            class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
-                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
-                                <img src="assets/img/Screenshot 2026-01-20 232623.jpg" alt="Red Velvet"
-                                    class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
-                                <div class="absolute top-4 right-4">
-                                    <button
-                                        class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M12 4.5v15m7.5-7.5h-15" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
-                                    <a href="product-detail.html">Red Velvet Can</a>
-                                </h3>
-                                <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
-                                <div class="mt-4 flex items-center justify-between">
-                                    <span class="text-xl font-bold text-white">$5.99</span>
-                                    <span
-                                        class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
-                                        Stock</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
-                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
-                                <img src="assets/img/Screenshot 2026-01-20 232637.jpg" alt="Red Velvet"
-                                    class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
-                                <div class="absolute top-4 right-4">
-                                    <button
-                                        class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M12 4.5v15m7.5-7.5h-15" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
-                                    <a href="product-detail.html">Red Velvet Can</a>
-                                </h3>
-                                <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
-                                <div class="mt-4 flex items-center justify-between">
-                                    <span class="text-xl font-bold text-white">$5.99</span>
-                                    <span
-                                        class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
-                                        Stock</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- More products... -->
                     </div>
+                    <div data-aos="fade-up" data-aos-delay="100"
+                        class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
+                            <img src="assets/img/Screenshot 2026-01-20 232553.jpg" alt="Red Velvet"
+                                class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
+                            <div class="absolute top-4 right-4">
+                                <button
+                                    class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
+                                <a href="product-detail.html" data-i18n="product_red_velvet_title">Red Velvet Can</a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400 capitalize" data-i18n="product_tag_classic">Classic</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-white">$5.99</span>
+                                <span
+                                    class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
+                                    Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200"
+                        class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
+                            <img src="assets/img/Screenshot 2026-01-20 232623.jpg" alt="Red Velvet"
+                                class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
+                            <div class="absolute top-4 right-4">
+                                <button
+                                    class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
+                                <a href="product-detail.html" data-i18n="product_red_velvet_title">Red Velvet Can</a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400 capitalize" data-i18n="product_tag_classic">Classic</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-white">$5.99</span>
+                                <span
+                                    class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded"
+                                    data-i18n="product_in_stock">In
+                                    Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300"
+                        class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
+                            <img src="assets/img/Screenshot 2026-01-20 232637.jpg" alt="Red Velvet"
+                                class="h-64 w-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
+                            <div class="absolute top-4 right-4">
+                                <button
+                                    class="p-3 bg-white text-brand-primary rounded-full shadow-lg hover:bg-brand-primary hover:text-white transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-white group-hover:text-brand-primary transition">
+                                <a href="product-detail.html" data-i18n="product_red_velvet_title">Red Velvet Can</a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400 capitalize" data-i18n="product_tag_classic">Classic</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-white">$5.99</span>
+                                <span
+                                    class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded"
+                                    data-i18n="product_in_stock">In
+                                    Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More products... -->
+                </div>
             </div>
         </main>
 
@@ -244,41 +258,53 @@
                     <!-- Brand Info -->
                     <div>
                         <h3 class="text-lg font-bold text-white mb-4">Cakeistry</h3>
-                        <p class="text-gray-400 text-sm mb-4">Love at First Bite, Sealed in a Can.</p>
-                        <a href="https://www.instagram.com/cakeistry_jo/" target="_blank" class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                        <p class="text-gray-400 text-sm mb-4" data-i18n="footer_brand_desc">Love at First Bite, Sealed
+                            in a Can.</p>
+                        <a href="https://www.instagram.com/cakeistry_jo/" target="_blank"
+                            class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                                class="w-5 h-5">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
                             </svg>
                         </a>
                     </div>
 
                     <!-- Quick Links -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
                         <ul class="space-y-2">
-                            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                            <li><a href="shop.html" class="text-gray-400 hover:text-white transition">Shop</a></li>
-                            <li><a href="articles.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                            <li><a href="index.html" data-i18n="nav_home"
+                                    class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="shop.html" data-i18n="nav_shop"
+                                    class="text-gray-400 hover:text-white transition">Shop</a></li>
+                            <li><a href="articles.html" data-i18n="nav_blog"
+                                    class="text-gray-400 hover:text-white transition">Blog</a></li>
                         </ul>
                     </div>
 
                     <!-- Support -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Support</h4>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_support">Support</h4>
                         <ul class="space-y-2">
-                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
-                            <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                            <li><a href="contact.html" data-i18n="nav_contact"
+                                    class="text-gray-400 hover:text-white transition">Contact Us</a>
+                            </li>
+                            <li><a href="faq.html" data-i18n="nav_faq"
+                                    class="text-gray-400 hover:text-white transition">FAQ</a></li>
                         </ul>
                     </div>
 
                     <!-- Newsletter -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Newsletter</h4>
-                        <p class="text-gray-400 text-sm mb-3">Get notified when we launch new products</p>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_newsletter">Newsletter</h4>
+                        <p class="text-gray-400 text-sm mb-3" data-i18n="footer_newsletter_desc">Get notified when we
+                            launch new products</p>
                         <form class="flex flex-col gap-2">
                             <input type="email" placeholder="Your email" required
+                                data-i18n-placeholder="footer_placeholder_email"
                                 class="px-3 py-2 bg-brand-dark border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary transition text-sm">
-                            <button type="submit"
+                            <button type="submit" data-i18n="footer_subscribe"
                                 class="px-3 py-2 bg-brand-primary hover:bg-pink-600 text-white font-semibold rounded-lg transition text-sm">
                                 Subscribe
                             </button>
@@ -287,11 +313,14 @@
                 </div>
 
                 <div class="border-t border-white/10 pt-8 text-center text-gray-400">
-                    <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+                    <p data-i18n="footer_copyright">&copy; 2026 Cakeistry. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="assets/animations.js"></script>
     <script src="assets/app.js"></script>
 </body>
 

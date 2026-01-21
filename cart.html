@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/theme-light.css">
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="assets/theme.js" defer></script>
+    <script src="assets/lang.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -26,13 +27,25 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition" title="Toggle Theme">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition"
+                            title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
                         </button>
+                        <button data-lang-toggle onclick="LangManager.toggle()"
+                            class="relative text-sm font-bold text-gray-300 hover:text-white transition">
+                            العربية
+                        </button>
                     </div>
+                </div>
+            </div>
+        </nav>
 
+        <main class="py-12 bg-brand-dark min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Cart Items -->
                     <div class="lg:col-span-2 space-y-4">
@@ -42,8 +55,9 @@
                                     class="w-full h-full object-cover">
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-lg font-bold text-white">Red Velvet Can</h3>
-                                <p class="text-gray-400">Price: $5.99</p>
+                                <h3 class="text-lg font-bold text-white" data-i18n="product_red_velvet_title">Red Velvet
+                                    Can</h3>
+                                <p class="text-gray-400"><span data-i18n="cart_price">Price:</span> $5.99</p>
                             </div>
                             <div class="flex items-center space-x-4">
                                 <div class="flex items-center border border-gray-600 rounded-lg">
@@ -63,24 +77,25 @@
                     <!-- Order Summary -->
                     <div class="lg:col-span-1">
                         <div class="glass rounded-xl p-6 border border-white/5 sticky top-24">
-                            <h2 class="text-xl font-bold text-white mb-6">Order Summary</h2>
+                            <h2 class="text-xl font-bold text-white mb-6" data-i18n="cart_summary_title">Order Summary
+                            </h2>
                             <div class="space-y-4 text-gray-300">
                                 <div class="flex justify-between">
-                                    <span>Subtotal</span>
+                                    <span data-i18n="cart_subtotal">Subtotal</span>
                                     <span>$5.99</span>
                                 </div>
                                 <div class="flex justify-between">
-                                    <span>Delivery</span>
+                                    <span data-i18n="cart_delivery">Delivery</span>
                                     <span>$5.00</span>
                                 </div>
                                 <div
                                     class="border-t border-gray-700 pt-4 flex justify-between text-white font-bold text-lg">
-                                    <span>Total</span>
+                                    <span data-i18n="cart_total">Total</span>
                                     <span>$10.99</span>
                                 </div>
                             </div>
                             <div class="mt-8">
-                                <a href="checkout.html"
+                                <a href="checkout.html" data-i18n="cart_checkout_btn"
                                     class="block w-full bg-brand-primary hover:bg-pink-600 text-white text-center font-bold py-3 rounded-full shadow-lg shadow-pink-500/30 transition">
                                     Proceed to Checkout
                                 </a>
@@ -93,7 +108,7 @@
 
         <footer class="bg-brand-surface py-8 mt-12 border-t border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-                <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+                <p data-i18n="footer_copyright">&copy; 2026 Cakeistry. All rights reserved.</p>
             </div>
         </footer>
     </div>

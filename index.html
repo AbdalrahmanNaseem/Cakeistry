@@ -7,9 +7,12 @@
     <title>Cakeistry - Cake in a Can</title>
     <link rel="stylesheet" href="assets/app.css">
     <link rel="stylesheet" href="assets/theme-light.css">
+    <link rel="stylesheet" href="assets/theme-light.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="assets/theme.js" defer></script>
+    <script src="assets/lang.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -26,25 +29,32 @@
                             </a>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <a href="index.html"
+                            <a href="index.html" data-i18n="nav_home"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Home</a>
-                            <a href="shop.html"
+                            <a href="shop.html" data-i18n="nav_shop"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Shop</a>
-                            <a href="articles.html"
+                            <a href="articles.html" data-i18n="nav_blog"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Blog</a>
-                            <a href="testimonials.html"
+                            <a href="testimonials.html" data-i18n="nav_reviews"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Reviews</a>
-                            <a href="contact.html"
+                            <a href="contact.html" data-i18n="nav_contact"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Contact</a>
-                            <a href="faq.html"
+                            <a href="faq.html" data-i18n="nav_faq"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">FAQ</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition" title="Toggle Theme">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition"
+                            title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
+                        </button>
+                        <button data-lang-toggle onclick="LangManager.toggle()"
+                            class="relative text-sm font-bold text-gray-300 hover:text-white transition">
+                            العربية
                         </button>
                         <a href="cart.html" class="relative text-gray-300 hover:text-white transition">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -54,10 +64,11 @@
                             </svg>
                         </a>
                         <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
-                            <a href="admin/dashboard.html"
+                            <a href="admin/dashboard.html" data-i18n="nav_admin"
                                 class="text-sm text-brand-secondary hover:text-white transition">Admin</a>
-                            <a href="login.html" class="text-sm text-gray-300 hover:text-white transition">Log in</a>
-                            <a href="register.html"
+                            <a href="login.html" data-i18n="nav_login"
+                                class="text-sm text-gray-300 hover:text-white transition">Log in</a>
+                            <a href="register.html" data-i18n="nav_register"
                                 class="text-sm bg-brand-primary hover:bg-pink-600 text-white px-4 py-2 rounded-full transition shadow-lg shadow-pink-500/30">Register</a>
                         </div>
                         <div class="-me-2 flex items-center sm:hidden">
@@ -79,19 +90,20 @@
             <div :class="{'block': open, 'hidden': ! open}"
                 class="hidden sm:hidden bg-brand-surface/90 backdrop-blur-md">
                 <div class="pt-2 pb-3 space-y-1">
-                    <a href="index.html"
+                    <a href="index.html" data-i18n="mobile_nav_home"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-brand-primary text-sm font-medium text-white bg-brand-primary/10 transition">Home</a>
-                    <a href="shop.html"
+                    <a href="shop.html" data-i18n="mobile_nav_shop"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Shop</a>
-                    <a href="articles.html"
+                    <a href="articles.html" data-i18n="mobile_nav_blog"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Blog</a>
-                    <a href="contact.html"
+                    <a href="contact.html" data-i18n="mobile_nav_contact"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Contact</a>
-                    <a href="faq.html"
+                    <a href="faq.html" data-i18n="mobile_nav_faq"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">FAQ</a>
-                    <a href="login.html"
-                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Log in</a>
-                    <a href="register.html"
+                    <a href="login.html" data-i18n="mobile_nav_login"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Log
+                        in</a>
+                    <a href="register.html" data-i18n="mobile_nav_register"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Register</a>
                 </div>
             </div>
@@ -100,34 +112,44 @@
         <!-- Page Content -->
         <main>
             <!-- Hero Section -->
-            <div class="relative bg-brand-dark overflow-hidden">
+            <div class="relative bg-brand-dark overflow-hidden" id="hero-3d-container">
                 <div class="absolute inset-0">
                     <div
                         class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-transparent z-10">
                     </div>
-                    <div
-                        class="w-full h-full bg-[url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center ">
-                    </div>
                 </div>
-                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 z-20">
-                    <div class="md:w-2/3">
+
+                <div
+                    class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 z-20 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2" data-aos="fade-right">
                         <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-                            <span class="block">Love at First Bite,</span>
-                            <span class="block text-brand-primary">Sealed in a Can.</span>
+                            <span class="block" data-i18n="hero_title_1">Love at First Bite,</span>
+                            <span class="block text-brand-primary" data-i18n="hero_title_2">Sealed in a Can.</span>
                         </h1>
-                        <p class="mt-4 text-xl text-gray-300 max-w-lg mb-8">
+                        <p class="mt-4 text-xl text-gray-300 max-w-lg mb-8" data-i18n="hero_desc">
                             Experience the future of dessert. Fresh, premium, and portable cakes delivered straight to
                             your door.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="shop.html"
-                                class="px-8 py-3 bg-brand-primary hover:bg-pink-600 text-white font-bold rounded-full shadow-lg shadow-pink-500/30 transition transform hover:-translate-y-1">
+                            <a href="shop.html" data-i18n="hero_order_now"
+                                class="px-8 py-3 bg-brand-primary hover:bg-pink-600 text-white font-bold rounded-full shadow-lg shadow-pink-500/30 transition transform hover:-translate-y-1 hover-bounce">
                                 Order Now
                             </a>
-                            <a href="#featured"
-                                class="px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-full backdrop-blur-sm transition border border-white/20">
+                            <a href="#featured" data-i18n="hero_view_menu"
+                                class="px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-full backdrop-blur-sm transition border border-white/20 hover-bounce">
                                 View Menu
                             </a>
+                        </div>
+                    </div>
+
+                    <!-- 3D Image Container -->
+                    <div class="md:w-1/2 mt-12 md:mt-0 relative" data-aos="fade-left" data-aos-delay="200">
+                        <div class="relative w-full max-w-lg mx-auto perspective-1000">
+                            <div
+                                class="absolute top-0 right-0 w-64 h-64 bg-brand-primary/20 rounded-full filter blur-3xl animate-pulse">
+                            </div>
+                            <img src="assets/img/Gemini_Generated_Image_nkofgonkofgonkof.png" id="hero-3d-image"
+                                alt="3D Flying Cake" class="relative z-10 w-full h-auto drop-shadow-2xl hover-float">
                         </div>
                     </div>
                 </div>
@@ -137,14 +159,15 @@
             <div id="featured" class="py-16 bg-brand-dark">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold text-white mb-4">Trending Flavors</h2>
+                        <h2 class="text-3xl font-bold text-white mb-4" data-i18n="featured_title">Trending Flavors</h2>
                         <div class="w-24 h-1 bg-brand-primary mx-auto rounded-full"></div>
-                        <p class="mt-4 text-gray-400">Our customer favorites, waiting for you.</p>
+                        <p class="mt-4 text-gray-400" data-i18n="featured_desc">Our customer favorites, waiting for you.
+                        </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <!-- Product 1 -->
-                        <div
+                        <div data-aos="fade-up" data-aos-delay="0"
                             class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
 
@@ -168,13 +191,13 @@
                                 <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
                                 <div class="mt-4 flex items-center justify-between">
                                     <span class="text-xl font-bold text-white">$5.99</span>
-                                    <span
+                                    <span data-i18n="product_in_stock"
                                         class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
                                         Stock</span>
                                 </div>
                             </div>
                         </div>
-                        <div
+                        <div data-aos="fade-up" data-aos-delay="100"
                             class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
                                 <img src="assets/img/Screenshot 2026-01-20 232553.jpg" alt="Red Velvet"
@@ -197,13 +220,13 @@
                                 <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
                                 <div class="mt-4 flex items-center justify-between">
                                     <span class="text-xl font-bold text-white">$5.99</span>
-                                    <span
+                                    <span data-i18n="product_in_stock"
                                         class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
                                         Stock</span>
                                 </div>
                             </div>
                         </div>
-                        <div
+                        <div data-aos="fade-up" data-aos-delay="200"
                             class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
                                 <img src="assets/img/Screenshot 2026-01-20 232623.jpg" alt="Red Velvet"
@@ -226,13 +249,13 @@
                                 <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
                                 <div class="mt-4 flex items-center justify-between">
                                     <span class="text-xl font-bold text-white">$5.99</span>
-                                    <span
+                                    <span data-i18n="product_in_stock"
                                         class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
                                         Stock</span>
                                 </div>
                             </div>
                         </div>
-                        <div
+                        <div data-aos="fade-up" data-aos-delay="300"
                             class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300">
                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-800">
                                 <img src="assets/img/Screenshot 2026-01-20 232637.jpg" alt="Red Velvet"
@@ -255,7 +278,7 @@
                                 <p class="mt-1 text-sm text-gray-400 capitalize">Classic</p>
                                 <div class="mt-4 flex items-center justify-between">
                                     <span class="text-xl font-bold text-white">$5.99</span>
-                                    <span
+                                    <span data-i18n="product_in_stock"
                                         class="text-xs font-medium text-brand-secondary bg-brand-secondary/10 px-2 py-1 rounded">In
                                         Stock</span>
                                 </div>
@@ -273,7 +296,7 @@
                 </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="text-center p-6 glass rounded-2xl">
+                        <div class="text-center p-6 glass rounded-2xl" data-aos="zoom-in" data-aos-delay="0">
                             <div
                                 class="w-16 h-16 bg-brand-primary/20 text-brand-primary rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -282,11 +305,13 @@
                                         d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H4.5a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Freshly Baked</h3>
-                            <p class="text-gray-400">Baked daily using premium ingredients and sealed instantly for
+                            <h3 class="text-xl font-bold text-white mb-2" data-i18n="feature_fresh_title">Freshly Baked
+                            </h3>
+                            <p class="text-gray-400" data-i18n="feature_fresh_desc">Baked daily using premium
+                                ingredients and sealed instantly for
                                 freshness.</p>
                         </div>
-                        <div class="text-center p-6 glass rounded-2xl">
+                        <div class="text-center p-6 glass rounded-2xl" data-aos="zoom-in" data-aos-delay="100">
                             <div
                                 class="w-16 h-16 bg-brand-secondary/20 text-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -295,11 +320,13 @@
                                         d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Fast Delivery</h3>
-                            <p class="text-gray-400">Track your order in real-time from our kitchen to your doorstep.
+                            <h3 class="text-xl font-bold text-white mb-2" data-i18n="feature_delivery_title">Fast
+                                Delivery</h3>
+                            <p class="text-gray-400" data-i18n="feature_delivery_desc">Track your order in real-time
+                                from our kitchen to your doorstep.
                             </p>
                         </div>
-                        <div class="text-center p-6 glass rounded-2xl">
+                        <div class="text-center p-6 glass rounded-2xl" data-aos="zoom-in" data-aos-delay="200">
                             <div
                                 class="w-16 h-16 bg-brand-accent/20 text-brand-accent rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -308,8 +335,10 @@
                                         d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Made with Love</h3>
-                            <p class="text-gray-400">Every can is crafted with passion and attention to detail.</p>
+                            <h3 class="text-xl font-bold text-white mb-2" data-i18n="feature_love_title">Made with Love
+                            </h3>
+                            <p class="text-gray-400" data-i18n="feature_love_desc">Every can is crafted with passion and
+                                attention to detail.</p>
                         </div>
                     </div>
                 </div>
@@ -322,41 +351,54 @@
                     <!-- Brand Info -->
                     <div>
                         <h3 class="text-lg font-bold text-white mb-4">Cakeistry</h3>
-                        <p class="text-gray-400 text-sm mb-4">Love at First Bite, Sealed in a Can.</p>
-                        <a href="https://www.instagram.com/cakeistry_jo/" target="_blank" class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                        <p class="text-gray-400 text-sm mb-4" data-i18n="footer_brand_desc">Love at First Bite, Sealed
+                            in a
+                            Can.</p>
+                        <a href="https://www.instagram.com/cakeistry_jo/" target="_blank"
+                            class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                                class="w-5 h-5">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
                             </svg>
                         </a>
                     </div>
 
                     <!-- Quick Links -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
                         <ul class="space-y-2">
-                            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                            <li><a href="shop.html" class="text-gray-400 hover:text-white transition">Shop</a></li>
-                            <li><a href="articles.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                            <li><a href="index.html" data-i18n="nav_home"
+                                    class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="shop.html" data-i18n="nav_shop"
+                                    class="text-gray-400 hover:text-white transition">Shop</a></li>
+                            <li><a href="articles.html" data-i18n="nav_blog"
+                                    class="text-gray-400 hover:text-white transition">Blog</a></li>
                         </ul>
                     </div>
 
                     <!-- Support -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Support</h4>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_support">Support</h4>
                         <ul class="space-y-2">
-                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
-                            <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                            <li><a href="contact.html" data-i18n="nav_contact"
+                                    class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                            <li><a href="faq.html" data-i18n="nav_faq"
+                                    class="text-gray-400 hover:text-white transition">FAQ</a></li>
                         </ul>
                     </div>
 
                     <!-- Newsletter -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Newsletter</h4>
-                        <p class="text-gray-400 text-sm mb-3">Get notified when we launch new products</p>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_newsletter">Newsletter</h4>
+                        <p class="text-gray-400 text-sm mb-3" data-i18n="footer_newsletter_desc">Get notified when we
+                            launch
+                            new products</p>
                         <form class="flex flex-col gap-2">
                             <input type="email" placeholder="Your email" required
+                                data-i18n-placeholder="footer_placeholder_email"
                                 class="px-3 py-2 bg-brand-dark border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary transition text-sm">
-                            <button type="submit"
+                            <button type="submit" data-i18n="footer_subscribe"
                                 class="px-3 py-2 bg-brand-primary hover:bg-pink-600 text-white font-semibold rounded-lg transition text-sm">
                                 Subscribe
                             </button>
@@ -365,11 +407,15 @@
                 </div>
 
                 <div class="border-t border-white/10 pt-8 text-center text-gray-400">
-                    <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+                    <p data-i18n="footer_copyright">&copy; 2026 Cakeistry. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="assets/animations.js"></script>
     <script src="assets/app.js"></script>
 </body>
 

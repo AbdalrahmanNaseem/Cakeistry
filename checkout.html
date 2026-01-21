@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="assets/theme.js" defer></script>
+    <script src="assets/lang.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -27,10 +28,17 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition" title="Toggle Theme">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition"
+                            title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
+                        </button>
+                        <button data-lang-toggle onclick="LangManager.toggle()"
+                            class="relative text-sm font-bold text-gray-300 hover:text-white transition">
+                            العربية
                         </button>
                     </div>
                 </div>
@@ -40,37 +48,40 @@
         <!-- Page Content -->
         <main class="py-12 bg-brand-dark min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold text-white mb-8 text-center">Checkout</h1>
+                <h1 class="text-3xl font-bold text-white mb-8 text-center" data-i18n="checkout_title">Checkout</h1>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <!-- Delivery Details -->
                     <div class="glass rounded-2xl p-8 border border-white/5">
                         <h2 class="text-xl font-bold text-white mb-6 flex items-center">
                             <span
-                                class="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center text-white mr-3">1</span>
-                            Delivery Details
+                                class="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center text-white me-3">1</span>
+                            <span data-i18n="checkout_delivery_title">Delivery Details</span>
                         </h2>
                         <form class="space-y-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-300">Delivery Address</label>
-                                <textarea rows="3"
+                                <label class="block text-sm font-medium text-gray-300"
+                                    data-i18n="checkout_address_label">Delivery Address</label>
+                                <textarea rows="3" data-i18n-placeholder="checkout_address_placeholder"
                                     class="mt-1 block w-full rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus:border-brand-primary focus:ring-brand-primary"
                                     placeholder="Enter your full address..."></textarea>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">Location (Mock Map)</label>
+                                <label class="block text-sm font-medium text-gray-300 mb-2"
+                                    data-i18n="checkout_location_label">Location (Mock Map)</label>
                                 <div id="map"
                                     class="h-64 w-full rounded-lg border border-gray-600 bg-gray-900 flex items-center justify-center">
                                     <span class="text-gray-500 italic">Map Placeholder</span>
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-300">Delivery Notes (Optional)</label>
+                                <label class="block text-sm font-medium text-gray-300"
+                                    data-i18n="checkout_notes_label">Delivery Notes (Optional)</label>
                                 <textarea rows="2"
                                     class="mt-1 block w-full rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus:border-brand-primary focus:ring-brand-primary"></textarea>
                             </div>
                             <div class="mt-8">
-                                <button type="button"
+                                <button type="button" data-i18n="checkout_place_order_btn"
                                     class="w-full bg-brand-primary hover:bg-pink-600 text-white font-bold py-3 rounded-full shadow-lg shadow-pink-500/30 transition transform hover:-translate-y-1">
                                     Place Order (Demo)
                                 </button>
@@ -82,8 +93,8 @@
                     <div class="glass rounded-2xl p-8 border border-white/5 h-fit">
                         <h2 class="text-xl font-bold text-white mb-6 flex items-center">
                             <span
-                                class="w-8 h-8 rounded-full bg-brand-secondary flex items-center justify-center text-white mr-3">2</span>
-                            Your Order
+                                class="w-8 h-8 rounded-full bg-brand-secondary flex items-center justify-center text-white me-3">2</span>
+                            <span data-i18n="checkout_your_order_title">Your Order</span>
                         </h2>
                         <div class="flow-root">
                             <ul role="list" class="-my-6 divide-y divide-gray-700">
@@ -93,13 +104,13 @@
                                         <img src="https://placehold.co/100x100/1e293b/white?text=Red+Velvet"
                                             class="h-full w-full object-cover object-center">
                                     </div>
-                                    <div class="ml-4 flex flex-1 flex-col">
+                                    <div class="ms-4 flex flex-1 flex-col">
                                         <div>
                                             <div class="flex justify-between text-base font-medium text-white">
-                                                <h3>Red Velvet Can</h3>
-                                                <p class="ml-4">$5.99</p>
+                                                <h3 data-i18n="product_red_velvet_title">Red Velvet Can</h3>
+                                                <p class="ms-4">$5.99</p>
                                             </div>
-                                            <p class="mt-1 text-sm text-gray-400">Qty 1</p>
+                                            <p class="mt-1 text-sm text-gray-400" data-i18n="checkout_qty_1">Qty 1</p>
                                         </div>
                                     </div>
                                 </li>
@@ -107,16 +118,16 @@
                         </div>
                         <div class="border-t border-gray-700 mt-6 pt-6 space-y-4">
                             <div class="flex justify-between text-base font-medium text-gray-300">
-                                <p>Subtotal</p>
+                                <p data-i18n="cart_subtotal">Subtotal</p>
                                 <p>$5.99</p>
                             </div>
                             <div class="flex justify-between text-base font-medium text-gray-300">
-                                <p>Delivery Fee</p>
+                                <p data-i18n="cart_delivery">Delivery Fee</p>
                                 <p>$5.00</p>
                             </div>
                             <div
                                 class="flex justify-between text-xl font-bold text-white pt-4 border-t border-gray-700">
-                                <p>Total</p>
+                                <p data-i18n="cart_total">Total</p>
                                 <p>$10.99</p>
                             </div>
                         </div>

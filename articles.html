@@ -7,8 +7,10 @@
     <title>Blog - Cakeistry</title>
     <link rel="stylesheet" href="assets/app.css">
     <link rel="stylesheet" href="assets/theme-light.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="assets/theme.js" defer></script>
+    <script src="assets/lang.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -25,18 +27,23 @@
                             </a>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <a href="index.html"
+                            <a href="index.html" data-i18n="nav_home"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Home</a>
-                            <a href="shop.html"
+                            <a href="shop.html" data-i18n="nav_shop"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Shop</a>
-                            <a href="articles.html"
+                            <a href="articles.html" data-i18n="nav_blog"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-brand-primary text-sm font-medium leading-5 text-white transition duration-150 ease-in-out">Blog</a>
-                            <a href="testimonials.html"
+                            <a href="testimonials.html" data-i18n="nav_reviews"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Reviews</a>
-                            <a href="contact.html"
+                            <a href="contact.html" data-i18n="nav_contact"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Contact</a>
-                            <a href="faq.html"
+                            <a href="faq.html" data-i18n="nav_faq"
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">FAQ</a>
+                            <a href="login.html" data-i18n="nav_login"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Log
+                                in</a>
+                            <a href="register.html" data-i18n="nav_register"
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">Register</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -47,6 +54,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
+                        </button>
+                        <button data-lang-toggle onclick="LangManager.toggle()"
+                            class="relative text-sm font-bold text-gray-300 hover:text-white transition">
+                            العربية
                         </button>
                         <div class="-me-2 flex items-center sm:hidden">
                             <button @click="open = ! open"
@@ -67,18 +78,23 @@
             <div :class="{'block': open, 'hidden': ! open}"
                 class="hidden sm:hidden bg-brand-surface/90 backdrop-blur-md">
                 <div class="pt-2 pb-3 space-y-1">
-                    <a href="index.html"
+                    <a href="index.html" data-i18n="mobile_nav_home"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Home</a>
-                    <a href="shop.html"
+                    <a href="shop.html" data-i18n="mobile_nav_shop"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Shop</a>
-                    <a href="articles.html"
+                    <a href="articles.html" data-i18n="mobile_nav_blog"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-brand-primary text-sm font-medium text-white bg-brand-primary/10 transition">Blog</a>
-                    <a href="testimonials.html"
+                    <a href="testimonials.html" data-i18n="mobile_nav_reviews"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Reviews</a>
-                    <a href="contact.html"
+                    <a href="contact.html" data-i18n="mobile_nav_contact"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Contact</a>
-                    <a href="faq.html"
+                    <a href="faq.html" data-i18n="mobile_nav_faq"
                         class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">FAQ</a>
+                    <a href="login.html" data-i18n="mobile_nav_login"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Log
+                        in</a>
+                    <a href="register.html" data-i18n="mobile_nav_register"
+                        class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-sm font-medium text-gray-400 hover:text-white transition">Register</a>
                 </div>
             </div>
         </nav>
@@ -86,15 +102,16 @@
         <!-- Page Content -->
         <main class="py-4 bg-brand-dark min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h1 class="text-3xl font-bold text-white mb-4">Latest News & Articles</h1>
+                <div class="text-center mb-12" data-aos="fade-down">
+                    <h1 class="text-3xl font-bold text-white mb-4" data-i18n="blog_title">Latest News & Articles</h1>
                     <div class="w-24 h-1 bg-brand-primary mx-auto rounded-full"></div>
-                    <p class="mt-4 text-gray-400">Stay updated with the sweetest trends and news.</p>
+                    <p class="mt-4 text-gray-400" data-i18n="blog_desc">Stay updated with the sweetest trends and news.
+                    </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Article 1 -->
-                    <div
+                    <div data-aos="fade-up" data-aos-delay="0"
                         class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300 flex flex-col h-full">
                         <div class="aspect-w-16 aspect-h-9 bg-gray-800 overflow-hidden">
                             <img src="assets/img/Screenshot 2026-01-20 232453.jpg" alt="The Future of Cake in a Can"
@@ -102,21 +119,23 @@
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
                             <div class="flex-1">
-                                <p class="text-sm text-brand-secondary mb-2">Jan 20, 2026</p>
+                                <p class="text-sm text-brand-secondary mb-2" data-i18n="article_1_date">Jan 20, 2026</p>
                                 <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition mb-3">
-                                    <a href="article-detail.html">The Future of Cake in a Can</a>
+                                    <a href="article-detail.html" data-i18n="article_1_title">The Future of Cake in a
+                                        Can</a>
                                 </h3>
-                                <p class="text-gray-400 line-clamp-3">Discover why portable desserts are taking the
+                                <p class="text-gray-400 line-clamp-3" data-i18n="article_1_desc">Discover why portable
+                                    desserts are taking the
                                     world by storm and how Cakeistry is leading the way.</p>
                             </div>
                             <div class="mt-6 flex items-center">
-                                <span class="text-sm font-medium text-white">By Admin</span>
+                                <span class="text-sm font-medium text-white" data-i18n="blog_by">By Admin</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Article 2 -->
-                    <div
+                    <div data-aos="fade-up" data-aos-delay="100"
                         class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300 flex flex-col h-full">
                         <div class="aspect-w-16 aspect-h-9 bg-gray-800 overflow-hidden">
                             <img src="assets/img/Screenshot 2026-01-20 232553.jpg" alt="Premium Ingredients"
@@ -124,21 +143,23 @@
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
                             <div class="flex-1">
-                                <p class="text-sm text-brand-secondary mb-2">Jan 18, 2026</p>
+                                <p class="text-sm text-brand-secondary mb-2" data-i18n="article_2_date">Jan 18, 2026</p>
                                 <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition mb-3">
-                                    <a href="article-detail.html">Premium Ingredients, Premium Taste</a>
+                                    <a href="article-detail.html" data-i18n="article_2_title">Premium Ingredients,
+                                        Premium Taste</a>
                                 </h3>
-                                <p class="text-gray-400 line-clamp-3">Learn about the carefully sourced ingredients that
+                                <p class="text-gray-400 line-clamp-3" data-i18n="article_2_desc">Learn about the
+                                    carefully sourced ingredients that
                                     make our cakes truly special and delicious.</p>
                             </div>
                             <div class="mt-6 flex items-center">
-                                <span class="text-sm font-medium text-white">By Admin</span>
+                                <span class="text-sm font-medium text-white" data-i18n="blog_by">By Admin</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Article 3 -->
-                    <div
+                    <div data-aos="fade-up" data-aos-delay="200"
                         class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300 flex flex-col h-full">
                         <div class="aspect-w-16 aspect-h-9 bg-gray-800 overflow-hidden">
                             <img src="assets/img/Screenshot 2026-01-20 232623.jpg" alt="Customer Favorites"
@@ -146,21 +167,23 @@
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
                             <div class="flex-1">
-                                <p class="text-sm text-brand-secondary mb-2">Jan 15, 2026</p>
+                                <p class="text-sm text-brand-secondary mb-2" data-i18n="article_3_date">Jan 15, 2026</p>
                                 <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition mb-3">
-                                    <a href="article-detail.html">Our Customers Love These Flavors</a>
+                                    <a href="article-detail.html" data-i18n="article_3_title">Our Customers Love These
+                                        Flavors</a>
                                 </h3>
-                                <p class="text-gray-400 line-clamp-3">Explore the top-rated flavors that have captured
+                                <p class="text-gray-400 line-clamp-3" data-i18n="article_3_desc">Explore the top-rated
+                                    flavors that have captured
                                     the hearts and taste buds of our loyal customers.</p>
                             </div>
                             <div class="mt-6 flex items-center">
-                                <span class="text-sm font-medium text-white">By Admin</span>
+                                <span class="text-sm font-medium text-white" data-i18n="blog_by">By Admin</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Article 4 -->
-                    <div
+                    <div data-aos="fade-up" data-aos-delay="300"
                         class="group relative bg-brand-surface rounded-2xl overflow-hidden shadow-xl border border-white/5 hover:border-brand-primary/50 transition duration-300 flex flex-col h-full">
                         <div class="aspect-w-16 aspect-h-9 bg-gray-800 overflow-hidden">
                             <img src="assets/img/Screenshot 2026-01-20 232637.jpg" alt="Sustainable Packaging"
@@ -168,15 +191,17 @@
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
                             <div class="flex-1">
-                                <p class="text-sm text-brand-secondary mb-2">Jan 12, 2026</p>
+                                <p class="text-sm text-brand-secondary mb-2" data-i18n="article_4_date">Jan 12, 2026</p>
                                 <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition mb-3">
-                                    <a href="article-detail.html">Sustainable Packaging for a Better Future</a>
+                                    <a href="article-detail.html" data-i18n="article_4_title">Sustainable Packaging for
+                                        a Better Future</a>
                                 </h3>
-                                <p class="text-gray-400 line-clamp-3">Discover how we're committed to environmental
+                                <p class="text-gray-400 line-clamp-3" data-i18n="article_4_desc">Discover how we're
+                                    committed to environmental
                                     responsibility with our eco-friendly packaging solutions.</p>
                             </div>
                             <div class="mt-6 flex items-center">
-                                <span class="text-sm font-medium text-white">By Admin</span>
+                                <span class="text-sm font-medium text-white" data-i18n="blog_by">By Admin</span>
                             </div>
                         </div>
                     </div>
@@ -190,7 +215,8 @@
                     <!-- Brand Info -->
                     <div>
                         <h3 class="text-lg font-bold text-white mb-4">Cakeistry</h3>
-                        <p class="text-gray-400 text-sm mb-4">Love at First Bite, Sealed in a Can.</p>
+                        <p class="text-gray-400 text-sm mb-4" data-i18n="footer_brand_desc">Love at First Bite, Sealed
+                            in a Can.</p>
                         <a href="https://www.instagram.com/cakeistry_jo/" target="_blank"
                             class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
@@ -203,32 +229,39 @@
 
                     <!-- Quick Links -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
                         <ul class="space-y-2">
-                            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                            <li><a href="shop.html" class="text-gray-400 hover:text-white transition">Shop</a></li>
-                            <li><a href="articles.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                            <li><a href="index.html" data-i18n="nav_home"
+                                    class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="shop.html" data-i18n="nav_shop"
+                                    class="text-gray-400 hover:text-white transition">Shop</a></li>
+                            <li><a href="articles.html" data-i18n="nav_blog"
+                                    class="text-gray-400 hover:text-white transition">Blog</a></li>
                         </ul>
                     </div>
 
                     <!-- Support -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Support</h4>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_support">Support</h4>
                         <ul class="space-y-2">
-                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a>
+                            <li><a href="contact.html" data-i18n="nav_contact"
+                                    class="text-gray-400 hover:text-white transition">Contact Us</a>
                             </li>
-                            <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                            <li><a href="faq.html" data-i18n="nav_faq"
+                                    class="text-gray-400 hover:text-white transition">FAQ</a></li>
                         </ul>
                     </div>
 
                     <!-- Newsletter -->
                     <div>
-                        <h4 class="text-white font-semibold mb-4">Newsletter</h4>
-                        <p class="text-gray-400 text-sm mb-3">Get notified when we launch new products</p>
+                        <h4 class="text-white font-semibold mb-4" data-i18n="footer_newsletter">Newsletter</h4>
+                        <p class="text-gray-400 text-sm mb-3" data-i18n="footer_newsletter_desc">Get notified when we
+                            launch new products</p>
                         <form class="flex flex-col gap-2">
                             <input type="email" placeholder="Your email" required
+                                data-i18n-placeholder="footer_placeholder_email"
                                 class="px-3 py-2 bg-brand-dark border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary transition text-sm">
-                            <button type="submit"
+                            <button type="submit" data-i18n="footer_subscribe"
                                 class="px-3 py-2 bg-brand-primary hover:bg-pink-600 text-white font-semibold rounded-lg transition text-sm">
                                 Subscribe
                             </button>
@@ -237,12 +270,14 @@
                 </div>
 
                 <div class="border-t border-white/10 pt-8 text-center text-gray-400">
-                    <p>&copy; 2026 Cakeistry. All rights reserved.</p>
+                    <p data-i18n="footer_copyright">&copy; 2026 Cakeistry. All rights reserved.</p>
                 </div>
             </div>
         </footer>
-        </footer>
     </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="assets/animations.js"></script>
     <script src="assets/app.js"></script>
 </body>
 
