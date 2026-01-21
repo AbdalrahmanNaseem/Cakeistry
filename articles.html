@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog - Cakeistry</title>
     <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="assets/theme-light.css">
     <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="assets/theme.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -37,18 +39,28 @@
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">FAQ</a>
                         </div>
                     </div>
-                    <div class="-me-2 flex items-center sm:hidden">
-                        <button @click="open = ! open"
-                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white transition">
-                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h16M4 18h16" />
-                                <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12" />
+                    <div class="flex items-center gap-4">
+                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition"
+                            title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
                         </button>
+                        <div class="-me-2 flex items-center sm:hidden">
+                            <button @click="open = ! open"
+                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white transition">
+                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                    <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h16" />
+                                    <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,7 +84,7 @@
         </nav>
 
         <!-- Page Content -->
-        <main class="py-12 bg-brand-dark min-h-screen">
+        <main class="py-4 bg-brand-dark min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h1 class="text-3xl font-bold text-white mb-4">Latest News & Articles</h1>
@@ -116,7 +128,8 @@
                                 <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition mb-3">
                                     <a href="article-detail.html">Premium Ingredients, Premium Taste</a>
                                 </h3>
-                                <p class="text-gray-400 line-clamp-3">Learn about the carefully sourced ingredients that make our cakes truly special and delicious.</p>
+                                <p class="text-gray-400 line-clamp-3">Learn about the carefully sourced ingredients that
+                                    make our cakes truly special and delicious.</p>
                             </div>
                             <div class="mt-6 flex items-center">
                                 <span class="text-sm font-medium text-white">By Admin</span>
@@ -137,7 +150,8 @@
                                 <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition mb-3">
                                     <a href="article-detail.html">Our Customers Love These Flavors</a>
                                 </h3>
-                                <p class="text-gray-400 line-clamp-3">Explore the top-rated flavors that have captured the hearts and taste buds of our loyal customers.</p>
+                                <p class="text-gray-400 line-clamp-3">Explore the top-rated flavors that have captured
+                                    the hearts and taste buds of our loyal customers.</p>
                             </div>
                             <div class="mt-6 flex items-center">
                                 <span class="text-sm font-medium text-white">By Admin</span>
@@ -158,7 +172,8 @@
                                 <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition mb-3">
                                     <a href="article-detail.html">Sustainable Packaging for a Better Future</a>
                                 </h3>
-                                <p class="text-gray-400 line-clamp-3">Discover how we're committed to environmental responsibility with our eco-friendly packaging solutions.</p>
+                                <p class="text-gray-400 line-clamp-3">Discover how we're committed to environmental
+                                    responsibility with our eco-friendly packaging solutions.</p>
                             </div>
                             <div class="mt-6 flex items-center">
                                 <span class="text-sm font-medium text-white">By Admin</span>
@@ -176,9 +191,12 @@
                     <div>
                         <h3 class="text-lg font-bold text-white mb-4">Cakeistry</h3>
                         <p class="text-gray-400 text-sm mb-4">Love at First Bite, Sealed in a Can.</p>
-                        <a href="https://www.instagram.com/cakeistry_jo/" target="_blank" class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                        <a href="https://www.instagram.com/cakeistry_jo/" target="_blank"
+                            class="inline-flex items-center justify-center w-10 h-10 bg-brand-primary hover:bg-pink-600 text-white rounded-full transition transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                                class="w-5 h-5">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
                             </svg>
                         </a>
                     </div>
@@ -197,7 +215,8 @@
                     <div>
                         <h4 class="text-white font-semibold mb-4">Support</h4>
                         <ul class="space-y-2">
-                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a>
+                            </li>
                             <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
                         </ul>
                     </div>

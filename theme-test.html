@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Test - Cakeistry</title>
+    <style>
+        :root {
+            --theme-bg-primary: rgb(15, 23, 42);
+            --theme-bg-secondary: rgb(30, 41, 59);
+            --theme-text-primary: rgb(255, 255, 255);
+            --theme-text-secondary: rgb(203, 213, 225);
+            --theme-border: rgb(51, 65, 85);
+        }
+
+        html.light {
+            --theme-bg-primary: rgb(255, 255, 255);
+            --theme-bg-secondary: rgb(248, 250, 252);
+            --theme-text-primary: rgb(15, 23, 42);
+            --theme-text-secondary: rgb(51, 65, 85);
+            --theme-border: rgb(226, 232, 240);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--theme-bg-primary);
+            color: var(--theme-text-primary);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--theme-bg-secondary);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--theme-border);
+        }
+
+        h1 {
+            color: var(--theme-text-primary);
+        }
+
+        button {
+            background-color: #ec4899;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #db2777;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--theme-bg-primary);
+            border: 1px solid var(--theme-border);
+            border-radius: 5px;
+            color: var(--theme-text-secondary);
+        }
+
+        .test-item {
+            margin: 15px 0;
+            padding: 10px;
+            border-left: 3px solid #ec4899;
+            background-color: var(--theme-bg-primary);
+            border-radius: 3px;
+        }
+
+        .success {
+            color: #10b981;
+        }
+
+        .error {
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Cakeistry Theme System Test</h1>
+        
+        <p>اختبر نظام الثيم الجديد بالنقر على الزر أدناه:</p>
+
+        <button onclick="toggleTheme()">🌓 Toggle Theme</button>
+
+        <div class="status">
+            <h3>حالة النظام:</h3>
+            <div id="test-results"></div>
+        </div>
+    </div>
+
+    <script>
+        // Test results container
+        const resultsDiv = document.getElementById('test-results');
+
+        // Test 1: Check if theme.js is loaded
+        function testThemeScript() {
+            const test = document.createElement('div');
+            test.className = 'test-item';
+            
+            if (typeof ThemeManager !== 'undefined') {
+                test.innerHTML = '<span class="success">✓ theme.js تم تحميله بنجاح</span>';
+            } else {
+                test.innerHTML = '<span class="error">✗ theme.js لم يتم تحميله</span>';
+            }
+            
+            resultsDiv.appendChild(test);
+        }
+
+        // Test 2: Check localStorage support
+        function testLocalStorage() {
+            const test = document.createElement('div');
+            test.className = 'test-item';
+            
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                test.innerHTML = '<span class="success">✓ localStorage يعمل بشكل صحيح</span>';
+            } catch (e) {
+                test.innerHTML = '<span class="error">✗ localStorage غير متاح</span>';
+            }
+            
+            resultsDiv.appendChild(test);
+        }
+
+        // Test 3: Check current theme
+        function testCurrentTheme() {
+            const test = document.createElement('div');
+            test.className = 'test-item';
+            
+            const currentTheme = document.documentElement.classList.contains('light') ? 'Light' : 'Dark';
+            test.innerHTML = `<span class="success">✓ الثيم الحالي: ${currentTheme}</span>`;
+            
+            resultsDiv.appendChild(test);
+        }
+
+        // Test 4: Check CSS Variables
+        function testCSSVariables() {
+            const test = document.createElement('div');
+            test.className = 'test-item';
+            
+            const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--theme-bg-primary');
+            if (bgColor.trim().length > 0) {
+                test.innerHTML = `<span class="success">✓ متغيرات CSS تعمل: ${bgColor.trim()}</span>`;
+            } else {
+                test.innerHTML = '<span class="error">✗ متغيرات CSS غير متاحة</span>';
+            }
+            
+            resultsDiv.appendChild(test);
+        }
+
+        // Toggle theme function
+        function toggleTheme() {
+            if (typeof ThemeManager !== 'undefined') {
+                ThemeManager.toggle();
+                resultsDiv.innerHTML = ''; // Clear results
+                runTests(); // Re-run tests
+            } else {
+                alert('نظام الثيم غير متاح');
+            }
+        }
+
+        // Run all tests
+        function runTests() {
+            testThemeScript();
+            testLocalStorage();
+            testCurrentTheme();
+            testCSSVariables();
+        }
+
+        // Run tests on page load
+        window.addEventListener('DOMContentLoaded', runTests);
+    </script>
+</body>
+</html>

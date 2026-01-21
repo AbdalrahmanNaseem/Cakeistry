@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Future of Cake in a Can - Cakeistry</title>
     <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="assets/theme-light.css">
     <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="assets/theme.js" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-brand-dark text-white">
@@ -37,7 +39,19 @@
                                 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-400 hover:text-white transition duration-150 ease-in-out">FAQ</a>
                         </div>
                     </div>
-                    <div class="-me-2 flex items-center sm:hidden">
+                    <div class="flex items-center gap-4">
+                        <button data-theme-toggle class="relative text-gray-300 hover:text-white transition" title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                            </svg>
+                        </button>
+                        <a href="cart.html" class="relative text-gray-300 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </a>
                         <button @click="open = ! open"
                             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white transition">
                             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
